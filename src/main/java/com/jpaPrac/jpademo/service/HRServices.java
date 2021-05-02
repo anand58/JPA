@@ -7,6 +7,7 @@ import com.jpaPrac.jpademo.Repositories.DepartmentRepo;
 import com.jpaPrac.jpademo.Repositories.EmployeeRepo;
 import com.jpaPrac.jpademo.Repositories.JobHistoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -32,6 +33,14 @@ public class HRServices {
         departmentRepo.findById(i).ifPresent(e -> d.set(e));
         return d.get();
     }
+
+    public List<Departments> findByDeparment(String departmentName){
+        Sort.TypedSort<Departments> departments = Sort.sort(Departments.class);
+        Sort sort = departments.by(Departments::getDepartmentName).ascending()
+                               .and(departments.by(Departments::getDepartmentId).ascending());
+        return departmentRepo.findByDepartmentName(departmentName, sort);
+    }
+
 
     public List<Departments> getDepatments() {
         List<Departments> l = new ArrayList<>();

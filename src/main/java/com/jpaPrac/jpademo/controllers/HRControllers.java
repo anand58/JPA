@@ -28,8 +28,13 @@ public class HRControllers {
     }
 
     @GetMapping("/dept/departments")
-    public List<Departments> getDeparments(){
+    public List<Departments> getDepartments(){
         return hrServices.getDepatments();
+    }
+
+    @GetMapping("/dept/sorted/{departmentName}")
+    public List<Departments> getByDepartmentName(@PathVariable String departmentName){
+        return hrServices.findByDeparment(departmentName);
     }
 
     @GetMapping("/job/{employeeId}/{startDate}")

@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Optional;
 
 @SpringBootTest
-class JpademoApplicationTests {
+class JpaDemoApplicationTests {
 
 	@Autowired
 	EmployeeRepo employeeRepo;
@@ -25,7 +25,7 @@ class JpademoApplicationTests {
 		//emp.setEmail("anand.tiwari@gmail.com");
 		//employeeRepo.save(emp);
 		Optional<Departments> em = departmentRepo.findById(30);
-		em.ifPresent(e -> System.out.println(">>>>>>>>>>>>>>>>" + e.getDepartment_name()));
+		em.ifPresent(e -> System.out.println(">>>>>>>>>>>>>>>>" + e.getDepartmentName()));
 
 	}
 

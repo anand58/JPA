@@ -14,8 +14,16 @@ import javax.persistence.*;
 public class Departments {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer department_id;
-    private String department_name;
-    private Integer manager_id;
-    private Integer location_id;
+
+    @Column(name = "department_id")
+    private Integer departmentId;
+
+    @Column(name = "department_name")
+    private String departmentName;
+
+    @Column(name = "manager_id")
+    private Integer managerId;
+
+    @Column(name = "location_id")
+    private Integer locationId;
 }
